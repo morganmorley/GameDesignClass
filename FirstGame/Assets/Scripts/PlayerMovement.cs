@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody physicsbody;
 	int speed; //mult to vector to increase speed
+	int score; //for scoreboard
 
 	// Use this for initialization
 	void Start () {
 		physicsbody = GetComponent<Rigidbody> ();
 		speed = 3;
+		score = 0;
 	}
 	
 	void FixedUpdate () {
@@ -23,5 +25,6 @@ public class PlayerMovement : MonoBehaviour {
 	void OnTriggerEnter(Collider cube){
 		//when roll through a box, it "triggers" this function
 		cube.gameObject.SetActive (false); //this sets cube inactive and it disappears
+		score = score + 1;
 	}
 }
