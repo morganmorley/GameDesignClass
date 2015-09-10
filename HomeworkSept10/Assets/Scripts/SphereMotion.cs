@@ -17,7 +17,7 @@ public class SphereMotion : MonoBehaviour {
 
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 		//float xMovement = Input.GetAxis("Horizontal");
 		//float yMovement = Input.GetAxis ("Vertical");
 		//Debug.Log (xMovement);
