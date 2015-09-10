@@ -3,9 +3,12 @@ using System.Collections;
 
 public class SphereMotion : MonoBehaviour {
 
+	public string name;
+
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("Hello World!");
+		name = "Justin";
+		Debug.Log ("Hello " + name);
 	}
 	
 	// Update is called once per frame
