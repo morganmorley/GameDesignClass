@@ -14,6 +14,7 @@ public class SphereMotion : MonoBehaviour {
 		Debug.Log ("Hello " + name);
 		physicsbody = GetComponent<Rigidbody> ();
 		speed = 1;
+
 	}
 	
 	void FixedUpdate () {
