@@ -5,6 +5,7 @@ public class SphereMotion : MonoBehaviour {
 
 	public string name;
 	Rigidbody physicsbody;
+	public int speed;
 
 
 	// Use this for initialization
@@ -12,6 +13,7 @@ public class SphereMotion : MonoBehaviour {
 		name = "Justin";
 		Debug.Log ("Hello " + name);
 		physicsbody = GetComponent<Rigidbody> ();
+		speed = 1;
 	}
 	
 	void FixedUpdate () {
@@ -19,7 +21,6 @@ public class SphereMotion : MonoBehaviour {
 		float yMovement = Input.GetAxis ("Vertical");
 		Debug.Log (xMovement);
 		Debug.Log (yMovement);
-		physicsbody.velocity = new Vector3(xMovement,yMovement, 0); //movement along x and z axes depending on which button you push
-
+		physicsbody.AddForce(new Vector3(xMovement,yMovement, 0) * speed); 
 	}
 }
