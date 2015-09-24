@@ -19,25 +19,23 @@ public class PlaneBehavior : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float xRotation = Input.GetAxis ("Vertical");
-		float zRotation = Input.GetAxis ("Horizontal");
+		float zRotation = Input.GetAxis ("Vertical");
+		float xRotation = Input.GetAxis ("Horizontal");
 
 		float currentRotationZ = transform.rotation.eulerAngles.z;
 		float currentRotationX = transform.rotation.eulerAngles.x;
-		float targetAngleZ;
-		float targetAngleX;
+		float targetAngleZ = currentRotationZ + zRotation * Time.deltaTime * turnSpeed;
+		float targetAngleX = currentRotationX + xRotation * Time.deltaTime * turnSpeed;
 
 
-		if (zRotation < 45 && zRotation > (-45)) {
-			targetAngleZ = currentRotationZ + zRotation * Time.deltaTime * turnSpeed;
-		} else {
-			targetAngleZ = currentRotationZ;
-		}
-
-		if (xRotation < 45 && xRotation > (-45)) {
-			targetAngleX = currentRotationX + xRotation *Time.deltaTime * turnSpeed;
-		} else {
-			targetAngleX = currentRotationX;
+		if (targetAngleZ >= 60) {
+			targetAngleZ = 60;
+		} else if (targetAngleZ <= -60) {
+			targetAngleZ = -60;
+		} else if (targetAngleX >= 60) {
+			targetAngleX = 60;
+		} else if (targetAngleX <= -60) {
+			targetAngleX = -60;
 		}
 
 		//Plane turning motion:
