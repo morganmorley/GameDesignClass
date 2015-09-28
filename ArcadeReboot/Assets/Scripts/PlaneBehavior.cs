@@ -27,7 +27,7 @@ public class PlaneBehavior : MonoBehaviour {
 		float targetAngleZ = currentRotationZ + zRotation * Time.deltaTime * turnSpeed;
 		float targetAngleX = currentRotationX + xRotation * Time.deltaTime * turnSpeed;
 
-
+		/*
 		if (targetAngleZ >= 60) {
 			targetAngleZ = 60;
 		} else if (targetAngleZ <= -60) {
@@ -36,7 +36,7 @@ public class PlaneBehavior : MonoBehaviour {
 			targetAngleX = 60;
 		} else if (targetAngleX <= -60) {
 			targetAngleX = -60;
-		}
+		}*/
 
 		//Plane turning motion:
 		Quaternion newRotation = Quaternion.Euler (new Vector3 (targetAngleX, 0, targetAngleZ));
