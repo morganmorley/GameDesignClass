@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour {
 	Ray shootRay;
 	float timer;
 	public float timeBetweenBullets = 0.15f;
+	public int gunDamage = 10;
 	AudioSource gunSound;
 
 	// Use this for initialization
@@ -44,7 +45,10 @@ public class PlayerAttack : MonoBehaviour {
 		bulletLine.SetPosition (0, transform.position); //0 = gunbarrel end at transform.position
 
 		if (Physics.Raycast (shootRay, out shootHit)) { //parameters (Ray ray, out RaycastHit hitInfo) returns a boolean
-			//enemy takes damage
+			EnemyHealth enemyHP = shootHit.collider.GetComponent<EnemyHealth>(); //enemy takes damagae
+			if (enemyHP != null) { //will be null if don't hit a collider
+				enemyHP.TakeDamage(gunDamage); //damage is same, maxHealth is custom
+			}
 			bulletLine.SetPosition (1, shootHit.point); //how to hit enemies, 1 = end of ray
 		} else {
 			bulletLine.SetPosition(1, shootRay.origin + shootRay.direction * 1000); //goes really far if it doesn't hit anything
