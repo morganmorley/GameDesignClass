@@ -3,6 +3,9 @@ using System.Collections;
 
 public class FuseBehavior : MonoBehaviour {
 
+	public GameObject fuseTrigger;
+
+
 	// Use this for initialization
 	void Start () {
 	
